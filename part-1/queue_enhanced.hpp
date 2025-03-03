@@ -34,6 +34,7 @@ template <typename T> class Dequeue : public Queue<T>
     }
 
     // Remove the element at the back of the queue
+    // TODO: Something wrong here
     void dequeue_back()
     {
         this->_size--;
