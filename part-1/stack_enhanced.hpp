@@ -12,14 +12,18 @@ template <typename T> class StackEnhanced : public Stack<T>
 
     void clear()
     {
-        // WRITE YOUR CODE HERE
+        // Pop until stack is empty
+        while (!this->empty()) {
+            this->pop();
+        }
     }
 };
 
 template <typename T>
 StackEnhanced<T> &operator<<(StackEnhanced<T> &stack, const T &value)
 {
-    // WRITE YOUR CODE HERE
+    stack.push(value);
+    return stack;
 }
 
 #endif // __stack_enhanced___
