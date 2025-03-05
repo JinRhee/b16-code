@@ -57,6 +57,7 @@ std::vector<hop_t> dijkstra(const SparseGraph &graph, const int source)
     Q[source] = true;
 
     int curr = source;
+    //auto queue = priority_enqueue<triplet_t>();
 
     // While there are unvisited nodes
     while (std::find(Q.begin(), Q.end(), false) != Q.end()) {
@@ -80,3 +81,36 @@ std::vector<hop_t> dijkstra(const SparseGraph &graph, const int source)
 }
 
 
+
+//std::vector<hop_t> dijkstra(const SparseGraph &graph, const int source)
+//{
+//    assert(source >= 0);
+//    assert(source < (signed)graph.size());
+//
+//    auto DP = std::vector<hop_t>(graph.size(), {inf, -1});
+//    auto Q = std::vector<bool>(graph.size(), false);
+//
+//    // Initialize source node
+//    DP[source] = {0, source};
+//    Q[source] = true;
+//
+//    auto compare = [](const triplet_t &lhs, const triplet_t &rhs) {
+//        return lhs.d < rhs.d;
+//    };
+//
+//    auto queue = priority_enqueue<triplet_t>();
+//    while (!queue.empty()) {
+//        // Extract vertex with smallest distance
+//        auto triplet = queue[0];
+//        priority_dequeue(queue, compare);
+//        // Skip if we've already found a better path
+//        // Update distance and predecessor for this vertex
+//        // For all outgoing edges from this vertex
+//        for (const auto& edge : graph[triplet.v]) {
+//            // Calculate new potential distance
+//            // Skip if distance is infinite or NaN
+//            // Add the potential new path to the priority queue
+//        }
+//    }
+//    return DP;
+//}
