@@ -38,7 +38,7 @@ template <typename T> class Dequeue : public Queue<T>
     void dequeue_back()
     {
         this->_size--;
-        if (this->_position == this->_storage.size()) {
+        if (this->_position + 1 == this->_storage.size()) { //  Add 1
             this->_position = 0;
         }
         else {
@@ -47,7 +47,8 @@ template <typename T> class Dequeue : public Queue<T>
     }
 
     // Remove all elements from the queue
-    void clear() { 
+    void clear() {
+        // Equivalent to: $ this->_size = 0;
         while (!this->empty()) {
             this->dequeue();
         }
@@ -58,9 +59,10 @@ template <typename T> class Dequeue : public Queue<T>
     size_t _tail() const
     {
         assert(this->_size >= 1);
-        auto index = this->_storage.size() - 1;//
-        if (index >= this->_storage.size()) { index -= this->_storage.size(); }
-        return index;
+        //auto index = this->_storage.size() - 1;//
+        //if (index >= this->_storage.size()) { index -= this->_storage.size(); }
+        if (this->_position + 1 == this->_storage.size()) {return 0;}
+        return this->_position + 1;
     }
 };
 

@@ -9,7 +9,7 @@ int main(int argc, char **argv)
     auto queue = Dequeue<float>(5);
 
     // Keep pushing and popping elements from the dequeue for a while
-    for (int repetition = 0; repetition < 3; ++repetition) {
+    for (int repetition = 0; repetition < 1; ++repetition) {
         std::cout << "Enqueued front";
         for (int i = 0; i < 3; ++i) {
             queue.enqueue_front(i);

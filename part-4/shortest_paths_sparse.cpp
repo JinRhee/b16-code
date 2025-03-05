@@ -26,7 +26,6 @@ std::vector<hop_t> bellman_ford(const SparseGraph &graph, const int source,
             }
         }
     }
-
     // Check for negative loops
     for (int i = 0; i < V; ++i) {
         for (const auto& hop : graph[i]) {
@@ -36,7 +35,6 @@ std::vector<hop_t> bellman_ford(const SparseGraph &graph, const int source,
             }
         }
     }
-
     return DP;
 }
 
